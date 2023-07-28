@@ -6,7 +6,6 @@ export abstract class Command {
     constructor(public wrappedFn: <C extends any>(client: C) => any) {}
 }
 
-
 export abstract class CommandClient {
     send = async <T extends Command>(command: T): Promise<T['returnType']> => {
         try {
