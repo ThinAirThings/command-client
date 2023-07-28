@@ -1,8 +1,8 @@
-export declare abstract class Command {
-    wrappedFn: <C extends CommandClient>(client: C) => any;
+export declare abstract class Command<C extends CommandClient> {
+    wrappedFn: (client: C) => any;
     abstract returnType: any;
-    constructor(wrappedFn: <C extends CommandClient>(client: C) => any);
+    constructor(wrappedFn: (client: C) => any);
 }
 export declare abstract class CommandClient {
-    send: <T extends Command>(command: T) => Promise<T["returnType"]>;
+    send: <T extends Command<CommandClient>>(command: T) => Promise<T["returnType"]>;
 }
