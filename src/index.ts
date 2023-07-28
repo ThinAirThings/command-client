@@ -3,7 +3,7 @@
 
 export abstract class Command {
     abstract returnType: any
-    constructor(public wrappedFn: <C extends any>(client: C) => any) {}
+    constructor(public wrappedFn: <C extends CommandClient>(client: C) => any) {}
 }
 
 export abstract class CommandClient {
